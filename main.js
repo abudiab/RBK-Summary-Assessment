@@ -225,7 +225,12 @@ d- Decrement the number of "unread" books
 function createReadingList() {
   var ReadingList = {};
 
-  list.read()
+  ReadingList.toRead();
+  ReadingList.addBooks();
+
+  //sorry didn't have time to do this one
+
+
 
 
 
@@ -313,7 +318,7 @@ function makeSafe(storageSize) {
 //Using jQuery run a function that gets called using the button's id (#create)
 //The function takes see if the checkboxes are checked or not (true or false), use $("#id").prop('checked')
 //If all 3 checkboxes are checked add an list item with the word black in it and add the "black" class to it
-//If 2 of the checkboxes are checked add (purple = blue + red), (green = blue + yellow), (orange = red + orange)
+//If 2 of the checkboxes are checked add (purple = blue + red), (green = blue + yellow), (orange = red + yellow)
 //If 1 of the checkboxes is checked add (yellow, blue or red) as li and the class to it
 
 //Using jQuery call a function from the button's id (#delete)

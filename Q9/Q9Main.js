@@ -13,3 +13,16 @@
 //Using jQuery call a function from the button's id (#delete)
 //The function removes all the elements from the unordered list based on the checkboxes as the previous function
 //Use jQuery as much as you can in selecting elements and other tasks
+
+
+$(document).ready(fucntion() {
+
+});
+
+$('#create').click(fucntion() {
+	//$("#id").prop('checked')
+	if($('checkbox1').prop('checked') && $('checkbox2').prop('checked') && $('checkbox3').prop('checked')) {
+		
+	} 
+	
+});
