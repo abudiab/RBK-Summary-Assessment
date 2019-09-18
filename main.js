@@ -60,10 +60,19 @@ function reduce(array, f, acc) {
 
 function wordLengths(str) {
     // TODO: your code here 
+    // we use each for this because we only need to iterate and apply a function.
+    //turn the string into an array using split
+    var array = str.split(' ');
+    var lengths = [];
+    //iterate over each item of the array and get the string length
+    each(array, function(element, i) {
+     lengths[i] = element.length;
+    });
+    return lengths;
 }
 
 //=============================================================================
-/*                                  Q2                                    */
+/*                                  Q2  (review)                              */
 //=============================================================================
 //Write a function countOccurrences that accepts two parameters: a string, 
 // and a character (e.g. "a"), and returns number of times that character occured.
@@ -73,6 +82,17 @@ function wordLengths(str) {
 
 function countOccurrences(string, character) {
     // your code is here
+    //we use reduce for this one because we want to reduce into one value
+    //We need to split the string to characters so we can compare, use split
+    var splitArray = string.split('');
+    var acc = 0;
+    return reduce(splitArray, function(element, acc) {
+      if (element === character) {
+        acc++;
+      }
+      return acc;
+
+    });
 }
 
 //=============================================================================
@@ -85,6 +105,13 @@ function countOccurrences(string, character) {
 
 function wordsLongerThanThree(str) {
     // TODO: your code here 
+    //we use filter because we have a condition that eliminates values
+    // split the string into words using split method
+    var newArray = str.split(' ');
+    //iterate and check condition using filter 
+    return filter(newArray, function(element, index) {
+      return element.length > 3 
+    });
 }
 
 //=============================================================================
@@ -100,11 +127,19 @@ function wordsLongerThanThree(str) {
 
 function repeatString(str, count) { 
  // TODO: your code here 
+ //iteration using recursio, we need an exit condition and a changing variable
+ //in order to use recursion we call the function within itself 
+ if(count === 0){
+  return '';
+ }
+ else {
+  return str + repeatString(str, count - 1);
+ }
 } 
  
 
 //=============================================================================
-/*                                  Q5                                       */
+/*                                  Q5  (review)                              */
 //=============================================================================
 /*
  using closures create a function called makePizza that has the following properties and methods
@@ -118,17 +153,46 @@ function repeatString(str, count) {
  eatSlice a function that let you eat from the pizza as long as the numberOfSlice is greater than zero and decrease the total number of slices by one.
  */
 //Example:
-// var pizza = makePizza("thin", "M", 2);
-// pizza.addIngredients("tomato");
-// pizza.addIngredients("meshroom");
-// pizza.addIngredients("meat");
-// console.log(pizza.displayIngredaints());
-// pizza.bakePizza();
-// pizza.eatSlice();
-// pizza.eatSlice();
-// pizza.eatSlice();
+// var pizza = makePizza("thin", "M", 2); //pass
+// pizza.addIngredients("tomato");//pass
+// pizza.addIngredients("meshroom");/pass
+// pizza.addIngredients("meat");/pass
+// console.log(pizza.displayIngredaints()); //error
+// pizza.bakePizza();/pass
+// pizza.eatSlice();/pass
+// pizza.eatSlice();/pass
+// pizza.eatSlice();/pass
 
 // Write your code here .....
+//Closures : we create a function, retun object with methods
+//
+
+function makePizza(crust, size, numberOfSlice) {
+  return { //maybe keep properties out in a different obj?? chk
+    crust: crust,
+    size: size,
+    numberOfSlice: numberOfSlice,
+    ingredients: [],
+    addIngredients: function(ingredient) {
+      this.ingredients.push(ingredient);
+      return this.displayIngredients;
+    },
+    displayIngredients: function() {      
+      return 'The ingredients are: ' + this.ingredients;
+    },
+    bakePizza: function() {
+      return 'Your ' + this.crust + this.size + this.numberOfSlice + ' Pizza is done!';
+    },
+    eatSlice: function () {
+      if(this.numberOfSlice !== 0) {
+        this.numberOfSlice--;
+        return 'Number of Slices: ' + this.numberOfSlice
+      } else {
+        return 'No Pizza left!'
+      }
+    }
+  }
+}
 
 //=============================================================================
 /*                                  Q6                                      */
