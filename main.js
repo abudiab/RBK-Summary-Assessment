@@ -195,7 +195,7 @@ function makePizza(crust, size, numberOfSlice) {
 }
 
 //=============================================================================
-/*                                  Q6                                      */
+/*                                  Q6  /get back to                                    */
 //=============================================================================
 /*
 Create a ReadingList class by using OOP concept, where:
@@ -219,13 +219,26 @@ d- Decrement the number of "unread" books
 // Now, to make sure that you are actually reading, make a comment below this and type: Yes I am
 
 // Write your code here .....
+// OOP: Create a function, inside is a variable (object) and return the object. 
+// Inbetween, add the methods and stuff
+
+function createReadingList() {
+  var ReadingList = {};
+
+  list.read()
+
+
+
+
+  return ReadingList;
+}
 
 //=============================================================================
-/*                                  Q7                                       */
+/*                                  Q7  (get back to)                                     */
 //=============================================================================
 //Using closures create makeSafe Function that accepts an initial integer value to specify the storage size limit
 //makeSafe should contain addItem function that accepts two parameters the item and the itemSize as Strings
-//itemSize should be either "big", "medium" and "small"
+//itemSize should be either "big", "medium" and "small" ???
 //big sized items will hold 3 slots in the storage
 //medium sized items will hold 2 slots in the storage
 //small sized items  will hold 1 slot in the storage
@@ -239,6 +252,38 @@ d- Decrement the number of "unread" books
 //  safe('money','small') => "watch gold-bar money"
 
 // Write your code here .....
+
+function makeSafe(storageSize) {
+  return {
+    storageSize: storageSize,
+    space: storageSize;
+    items: [],
+    displayItems: function() {
+      return 'Items: ' + this.items
+    }
+    addItem: function(item, itemSize) {
+      if(itemSize in ["big", "medium", "small"]) {
+        if (itemSize === "big") {
+          this.items.push(item);
+          this.space = this.space - 3;
+        } else if {
+          if (itemSize === "medium") {
+          this.items.push(item);
+          this.space = this.space - 2;
+        } else {
+          if (itemSize === "small") {
+          this.items.push(item);
+          this.space = this.space - 1;
+        }
+      } else { 
+        return 'Incorrect Item Size Input'
+      }
+    }
+  }
+  if (space === 0) {
+    return this.displayItems()
+  }
+}
 
 //=============================================================================
 /*                                  Q8                                       */
