@@ -286,7 +286,7 @@ function makeSafe(storageSize) {
 }
 
 //=============================================================================
-/*                                  Q8                                       */
+/*                                  Q8  (get back to)                        */
 //=============================================================================
 
 //Create HTML, CSS & JS files and connect them together
@@ -325,12 +325,23 @@ function makeSafe(storageSize) {
 //================================================================================
 // Theoretical questions.
 // 1- In your own words,Why do we use Closures ?
+//    we want to limit access to certain info/ variable. We limit the scope, so instead of
+//    defining a variable in the global scope where any other function can access and change it
+//    which could be very problematic since the varable will be unpredictable. 
+//    The only way to access the variable is through the scope of the function it was defined
+//    inside.
 
 // 2- In OOP, what does "this" refer to ?
+      // it refers to the current working object, the one we are at.
 
 // 3- What is jQuery?
+// it's the most popular javascript library, an open source set of rules that we can integrate
+// into our code to make life easier.
 
 // 4- what is the diffrence between Closure's methods and The OOP's methods?
+//  expression and declaration. In closures we return an opject with methods put in
+//  as declaration, meaning they are anonymous functions that we call using the key name
+// in oop we define an epty object and then assing keys as variables.
 
 
 
